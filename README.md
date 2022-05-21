@@ -1,6 +1,6 @@
 # Learning-notes
 
-前端笔记 &amp; 踩坑日记
+前端笔记 &amp; 踩坑日记 &amp; 冷知识，长期更新
 
 ## 1. `isNaN()` 和 `Number.isNaN()` 的区别
 
@@ -22,4 +22,24 @@ isNaN({}); // true
 isNaN('NaN'); // true
 isNaN('blabla'); // true
 isNaN(undefined); // true
+```
+
+## 2. CSS 实现文本溢出省略
+
+- 单行文本：
+
+```css
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+```
+
+- 多行文本：
+
+```css
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
 ```
