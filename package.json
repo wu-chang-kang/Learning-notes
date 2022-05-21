@@ -1,0 +1,19 @@
+{
+  "name": "learning-notes",
+  "version": "1.0.0",
+  "description": "踩坑日记",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wu-chang-kang/Learning-notes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wu-chang-kang/Learning-notes/issues"
+  },
+  "homepage": "https://github.com/wu-chang-kang/Learning-notes#readme"
+}
