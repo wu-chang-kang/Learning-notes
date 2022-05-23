@@ -197,3 +197,12 @@ setTimeout(() => {
 ```js
 setTimeout(`console.log('balabala');`, 0);
 ```
+
+## 10. 冷知识：Math.min 和 Math.max
+
+执行 Math.min 而不传参数的时候，得到的结果是 Infinity，执行 Math.max 而不传参数的时候，得到的结果是-Infinity：
+
+```js
+Math.min(); // Infinity
+Math.max(); // -Infinity
+```
