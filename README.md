@@ -112,3 +112,17 @@ clipboardWriteText('balabalabala')
 // 推荐
 [1, 2, 3].includes(1); // true
 ```
+
+## 5. 高性能向下取整
+
+核心是利用了位运算：
+
+```js
+// 不推荐
+const num = parseFloat(1.2);
+const num = parseFloat('1.2');
+
+// 推荐
+const num = 1.2 >>> 0;
+const num = '1.2' >>> 0;
+```
