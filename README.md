@@ -126,3 +126,23 @@ const num = parseFloat('1.2');
 const num = 1.2 >>> 0;
 const num = '1.2' >>> 0;
 ```
+
+## 6. 高性能判断奇偶
+
+跟上条一样，也是利用位运算：
+
+```js
+// 不推荐
+if (num % 2) {
+  console.log(`${num}是奇数`);
+} else {
+  console.log(`${num}是偶数`);
+}
+
+// 推荐
+if (num & 1) {
+  console.log(`${num}是奇数`);
+} else {
+  console.log(`${num}是偶数`);
+}
+```
