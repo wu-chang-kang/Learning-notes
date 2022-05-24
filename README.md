@@ -280,7 +280,7 @@ function debounce(func, wait) {
 }
 ```
 
-## 11. 冷知识：pr（pull Request）和 mr（merge Request）有什么区别？
+## 13. 冷知识：pr（pull Request）和 mr（merge Request）有什么区别？
 
 答：**没有区别。**
 
