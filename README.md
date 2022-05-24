@@ -325,3 +325,12 @@ const isPlainObject = (obj: any): boolean => {
   return proto === baseProto;
 };
 ```
+
+## 15. 判断是否在浏览器环境
+
+```ts
+const isBrowser = () =>
+  typeof window !== 'undefined' &&
+  typeof window.document !== 'undefined' &&
+  typeof window.document.createElement !== 'undefined';
+```
