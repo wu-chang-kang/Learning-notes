@@ -350,3 +350,79 @@ const compose = (...funcs) => {
   });
 };
 ```
+
+## 17. 处理数字精度问题
+
+```js
+// 加
+function add(arg1, arg2) {
+  let digits1, digits2, maxDigits;
+  try {
+    digits1 = arg1.toString().split('.')[1].length || 0;
+  } catch {
+    digits1 = 0;
+  }
+  try {
+    digits2 = arg2.toString().split('.')[1].length || 0;
+  } catch {
+    digits2 = 0;
+  }
+  maxDigits = 10 ** Math.max(digits1, digits2);
+  return (mul(arg1, maxDigits) + mul(arg2, maxDigits)) / maxDigits;
+}
+
+// 减
+function sub(arg1, arg2) {
+  let digits1, digits2, maxDigits;
+  try {
+    digits1 = arg1.toString().split('.')[1].length || 0;
+  } catch {
+    digits1 = 0;
+  }
+  try {
+    digits2 = arg2.toString().split('.')[1].length || 0;
+  } catch {
+    digits2 = 0;
+  }
+  maxDigits = 10 ** Math.max(digits1, digits2);
+  return (mul(arg1, maxDigits) - mul(arg2, maxDigits)) / maxDigits;
+}
+
+// 乘
+function mul(arg1, arg2) {
+  let digits = 0;
+  const s1 = arg1.toString();
+  const s2 = arg2.toString();
+  try {
+    digits += s1.split('.')[1].length;
+  } catch {}
+  try {
+    digits += s2.split('.')[1].length;
+  } catch {}
+  return (Number(s1.replace(/\./, '')) * Number(s2.replace(/\./, ''))) / 10 ** digits;
+}
+
+function div(arg1, arg2) {
+  let int1 = 0;
+  let int2 = 0;
+  let digits1;
+  let digits2;
+  try {
+    digits1 = arg1.toString().split('.')[1].length || 0;
+  } catch (e) {
+    digits1 = 0;
+  }
+  try {
+    digits2 = arg2.toString().split('.')[1].length || 0;
+  } catch (e) {
+    digits2 = 0;
+  }
+  int1 = Number(arg1.toString().replace(/\./, ''));
+  int2 = Number(arg2.toString().replace(/\./, ''));
+  return ((int1 / int2) * 10) ** (digits2 - digits1 || 1);
+}
+```
+
+顺便说一下，关于处理精度问题的解决方案，目前市面上已经有了很多较为成熟的库，比如 `bignumber.js`，`decimal.js`，以及 `big.js` 等，这些库不仅解决了浮点数的运算精度问题，还支持了大数运算，并且修复了原生 toFixed 结果不准确的问题。我们可以根据自己的需求来选择对应的工具。
+
+最后提醒一下：这玩意儿也就面试的时候写一下，强烈建议业务中还是用现成的库，出了问题我可不负责的嗷，唉，我好菜啊
