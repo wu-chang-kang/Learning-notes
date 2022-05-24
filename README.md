@@ -335,7 +335,7 @@ const isBrowser = () =>
   typeof window.document.createElement !== 'undefined';
 ```
 
-## 14. 实现一个 compose 函数
+## 16. 实现一个 compose 函数
 
 ```ts
 const compose = (...funcs) => {
