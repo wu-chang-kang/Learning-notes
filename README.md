@@ -303,3 +303,25 @@ Gitlab 选择了最后一个命令来命名，叫 `Merge Request`。
 Merge Request // 请求把代码合并进去
 Push Request // 请求把代码推进去
 ```
+
+## 14. 判断一个对象是普通对象还是通过类创建的
+
+```ts
+const isPlainObject = (obj: any): boolean => {
+  if (typeof obj !== 'object' || obj === null) {
+    return false;
+  }
+
+  let proto = Object.getPrototypeOf(obj);
+  if (proto === null) {
+    return true;
+  }
+
+  let baseProto = proto;
+  while (Object.getPrototypeOf(baseProto) !== null) {
+    baseProto = Object.getPrototypeOf(baseProto);
+  }
+
+  return proto === baseProto;
+};
+```
