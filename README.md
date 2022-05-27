@@ -427,7 +427,7 @@ function div(arg1, arg2) {
 
 最后提醒一下：这玩意儿也就面试的时候写一下，强烈建议业务中还是用现成的库，出了问题我可不负责的嗷，唉，我好菜啊
 
-## 16. 垂直居中 textarea
+## 18. 垂直居中 textarea
 
 ### 难点
 
@@ -490,3 +490,18 @@ function update() {
 
 window.onload = update;
 ```
+
+## 17. interface 和 type 的区别
+
+### 相同点：
+
+- 都可以描述对象
+- 都允许扩展（extends）
+
+### 不同点：
+
+- type 可以为任何类型引入名称，interface 只能描述对象
+- type 不支持继承，只能通过交叉类型合并，interface 可以通过继承扩展，也可以通过重载扩展
+- type 无法被实现 implements，而接口可以被派生类实现
+- type 重名会抛出错误，interface 重名会产生合并
+- interface 性能比 type 好一点（社区有讨论过这点，争议比较大，不管对不对，我贴出来兄弟们自己判断吧）
