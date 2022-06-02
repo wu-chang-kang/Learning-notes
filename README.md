@@ -402,6 +402,7 @@ function mul(arg1, arg2) {
   return (Number(s1.replace(/\./, '')) * Number(s2.replace(/\./, ''))) / 10 ** digits;
 }
 
+// 除
 function div(arg1, arg2) {
   let int1 = 0;
   let int2 = 0;
@@ -419,7 +420,7 @@ function div(arg1, arg2) {
   }
   int1 = Number(arg1.toString().replace(/\./, ''));
   int2 = Number(arg2.toString().replace(/\./, ''));
-  return ((int1 / int2) * 10) ** (digits2 - digits1 || 1);
+  return mul(int1 / int2, 10) ** (digits2 - digits1);
 }
 ```
 
