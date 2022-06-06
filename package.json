@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "踩坑日记",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": ""
   },
