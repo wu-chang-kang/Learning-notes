@@ -638,7 +638,36 @@ const isValid2 = (s: string): boolean => {
 </div>
 ```
 
-## 25. 老掉牙的面试题： React diff 是什么？可以省略吗？
+## 25. 判断对象中是否存在某个属性的几种方法
+
+### 1. hasOwnProperty()
+
+`hasOwnProperty`方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性（不包含原型上的属性）：
+
+```js
+({ a: 1 }.hasOwnProperty('a')); // true
+({ a: 1 }.hasOwnProperty('toString')); // false
+```
+
+### 2. in 操作符
+
+`in 操作符`会返回一个布尔值，指示对象自身属性中是否具有指定的属性（包含原型上的属性）：
+
+```js
+'a' in { a: 1 }; // true
+'toString' in { a: 1 }; // true
+```
+
+### 3. Reflect.has()
+
+`Reflect.has`作用与`in 操作符`相同：
+
+```js
+Reflect.has({ a: 1 }, 'a'); // true
+Reflect.has({ a: 1 }, 'toString'); // true
+```
+
+## 26. 老掉牙的面试题： React diff 是什么？可以省略吗？
 
 回答：可以省略，但是强烈不推荐（废话文学，面试的时候直接说不可以就好了）
 
